@@ -226,6 +226,7 @@
       #textiles > div[style] { grid-template-columns: 1fr !important; }
       #spice-powders > div[style] { grid-template-columns: 1fr !important; }
       #spice-powders div[style*="flex:0 0 340px"] { flex: 0 0 100% !important; }
+      .contact-form-block div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -590,34 +591,25 @@
 
     <div class="contact-form-block">
       <h3>Send an Enquiry</h3>
-      <div class="form-group">
-        <label for="name">Your Name / Company</label>
-        <input type="text" id="name" placeholder="e.g. John Smith / ABC Imports Ltd" />
+      <p style="font-size:.93rem; color:var(--mid); margin-bottom:1.5rem;">Fill in our quick enquiry form — it opens in a new tab and takes under a minute. We respond within 24–48 business hours.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSefb7UQGhXRppjvXfthpN_DyXbGjwY73puqBfTkhl2f4SlifA/viewform" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:.7rem; background:var(--maroon); color:#fff; padding:1rem 2rem; border-radius:10px; font-weight:700; font-size:1rem; text-decoration:none; transition:background .2s; box-shadow:0 4px 16px rgba(90,15,15,.3);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Open Enquiry Form
+      </a>
+      <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:.8rem;">
+        <div style="display:flex; align-items:center; gap:.7rem; font-size:.88rem; color:var(--mid);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Opens in a new tab — takes under 1 minute
+        </div>
+        <div style="display:flex; align-items:center; gap:.7rem; font-size:.88rem; color:var(--mid);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          We respond within 24–48 business hours
+        </div>
+        <div style="display:flex; align-items:center; gap:.7rem; font-size:.88rem; color:var(--mid);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Or email us directly at <a href="mailto:info.saffronhouse@gmail.com" style="color:var(--maroon); font-weight:600; margin-left:.2rem;">info.saffronhouse@gmail.com</a>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="you@company.com" />
-      </div>
-      <div class="form-group">
-        <label for="product">Product Interest</label>
-        <select id="product">
-          <option value="">Select a category…</option>
-          <option>Turmeric Powder</option>
-          <option>Red Chilli Powder</option>
-          <option>Coriander Powder</option>
-          <option>Jaggery Powder / Cube</option>
-          <option>Whole Spices</option>
-          <option>Bath Towels</option>
-          <option>Garments</option>
-          <option>Textile Products</option>
-          <option>Multiple / General Enquiry</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us about your requirements, quantities, or any questions…"></textarea>
-      </div>
-      <button class="form-submit" onclick="alert('Thank you for your enquiry! We will get back to you within 24–48 hours.')">Send Enquiry &rarr;</button>
     </div>
   </div>
 </section>
@@ -667,17 +659,13 @@
 </footer>
 
 <script>
+  // ── FAQ toggle ──
   function toggleFaq(btn) {
     const answer = btn.nextElementSibling;
     const isOpen = answer.classList.contains('open');
-    // close all
     document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
     document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
-    // open clicked if it was closed
-    if (!isOpen) {
-      answer.classList.add('open');
-      btn.classList.add('open');
-    }
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
   }
 </script>
 </body>
