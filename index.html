@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saffron House – Premium Export Products</title>
+  <meta name="description" content="Saffron House supplies premium quality spices, bath towels, garments, and textile products for international markets." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #2d1a00; background: #fffdf7; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --saffron:   #e8871a;
+      --saffron-d: #c46a08;
+      --saffron-l: #fff3e0;
+      --gold:      #f5c842;
+      --dark:      #2d1a00;
+      --mid:       #6b3f00;
+      --light:     #fffdf7;
+      --white:     #ffffff;
+      --border:    #f0d9b0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 3px solid var(--saffron);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; height: 64px;
+      box-shadow: 0 2px 12px rgba(232,135,26,.12);
+    }
+    .nav-logo { font-size: 1.4rem; font-weight: 800; color: var(--saffron-d); letter-spacing: .5px; display: flex; align-items: center; gap: .5rem; }
+    .nav-logo span { color: var(--saffron); }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 6px; object-fit: cover; }
+    .nav-links { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
+    .nav-links a { color: var(--mid); transition: color .2s; }
+    .nav-links a:hover { color: var(--saffron); }
+    .nav-cta { background: var(--saffron); color: var(--white); padding: .45rem 1.2rem; border-radius: 6px; font-weight: 700; font-size: .9rem; transition: background .2s; }
+    .nav-cta:hover { background: var(--saffron-d); }
+
+    /* HERO */
+    #hero {
+      min-height: 88vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 3rem;
+      padding: 5rem 6vw 4rem;
+      background: linear-gradient(135deg, #fff8ee 0%, #ffe8b8 60%, #ffd07a 100%);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; right: -80px; top: -80px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(232,135,26,.15) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--saffron); color: var(--white); font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: .3rem .9rem; border-radius: 20px; margin-bottom: 1.2rem; }
+    .hero-badge img { width: 16px; height: 16px; }
+    .hero-content h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.15; color: var(--dark); margin-bottom: 1.2rem; }
+    .hero-content h1 em { font-style: normal; color: var(--saffron); }
+    .hero-content p { font-size: 1.05rem; color: var(--mid); margin-bottom: 2rem; max-width: 500px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--saffron); color: var(--white); padding: .75rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background .2s, transform .15s; box-shadow: 0 4px 16px rgba(232,135,26,.35); }
+    .btn-primary:hover { background: var(--saffron-d); transform: translateY(-2px); }
+    .btn-outline { border: 2px solid var(--saffron); color: var(--saffron-d); padding: .73rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background .2s, color .2s; }
+    .btn-outline:hover { background: var(--saffron-l); }
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--saffron-d); }
+    .stat-label { font-size: .8rem; color: var(--mid); font-weight: 600; letter-spacing: .5px; }
+    .hero-image { position: relative; z-index: 1; }
+    .hero-image img { width: 100%; height: 480px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 60px rgba(44,26,0,.25); }
+    .hero-image-badge {
+      position: absolute; bottom: -16px; left: 24px;
+      background: var(--white); border-radius: 12px; padding: .8rem 1.2rem;
+      box-shadow: 0 8px 24px rgba(44,26,0,.15);
+      display: flex; align-items: center; gap: .8rem;
+    }
+    .hero-image-badge img { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+    .hero-image-badge strong { display: block; font-size: .9rem; color: var(--dark); }
+    .hero-image-badge span { font-size: .78rem; color: var(--mid); }
+
+    /* SECTION SHARED */
+    section { padding: 5rem 6vw; }
+    .section-tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--saffron); margin-bottom: .6rem; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: var(--dark); margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--mid); max-width: 600px; margin-bottom: 3rem; }
+    .divider { width: 56px; height: 4px; background: linear-gradient(90deg, var(--saffron), var(--gold)); border-radius: 2px; margin: .8rem 0 1.4rem; }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; box-shadow: 0 16px 48px rgba(44,26,0,.18); }
+    .about-img-badge {
+      position: absolute; bottom: -18px; right: -18px;
+      background: var(--saffron); color: var(--white);
+      border-radius: 12px; padding: 1rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(232,135,26,.4);
+      text-align: center;
+    }
+    .about-img-badge strong { display: block; font-size: 1.6rem; font-weight: 900; }
+    .about-img-badge span { font-size: .78rem; font-weight: 600; letter-spacing: .5px; }
+    .about-text p { color: var(--mid); margin-bottom: 1rem; }
+
+    /* PRODUCTS */
+    #products { background: var(--saffron-l); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
+    .product-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1.5px solid var(--border); transition: transform .2s, box-shadow .2s; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(232,135,26,.2); }
+    .product-card img { width: 100%; height: 200px; object-fit: cover; }
+    .product-card-body { padding: 1.4rem 1.4rem 1.6rem; text-align: center; }
+    .product-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--dark); margin-bottom: .4rem; }
+    .product-card p { font-size: .88rem; color: var(--mid); }
+    .product-tag { display: inline-block; margin-top: .8rem; background: var(--saffron-l); color: var(--saffron-d); font-size: .75rem; font-weight: 700; padding: .25rem .8rem; border-radius: 20px; border: 1px solid var(--border); }
+
+    /* WHY CHOOSE US */
+    #why { background: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .why-card { background: var(--saffron-l); border-radius: 12px; padding: 1.6rem 1.4rem; border-left: 4px solid var(--saffron); transition: background .2s; display: flex; flex-direction: column; gap: .5rem; }
+    .why-card:hover { background: #ffe8b8; }
+    .why-icon { width: 40px; height: 40px; flex-shrink: 0; }
+    .why-card h4 { font-size: 1rem; font-weight: 800; color: var(--dark); }
+    .why-card p { font-size: .88rem; color: var(--mid); }
+
+    /* MARKETS */
+    #markets { background: linear-gradient(135deg, #2d1a00 0%, #6b3f00 100%); color: var(--white); }
+    #markets .section-title { color: var(--white); }
+    #markets .section-sub { color: #f0d9b0; }
+    #markets .section-tag { color: var(--gold); }
+    .markets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .market-card { background: rgba(255,255,255,.07); border: 1.5px solid rgba(245,200,66,.3); border-radius: 12px; padding: 1.2rem 1rem; text-align: center; transition: background .2s; }
+    .market-card:hover { background: rgba(245,200,66,.12); }
+    .market-card img { width: 48px; height: 32px; object-fit: cover; border-radius: 4px; margin: 0 auto .6rem; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+    .market-card span { display: block; font-size: .88rem; font-weight: 700; color: var(--gold); }
+    .markets-note { margin-top: 2.5rem; font-size: .95rem; color: #f0d9b0; max-width: 600px; }
+
+    /* CONTACT */
+    #contact { background: var(--saffron-l); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; }
+    .contact-info p { color: var(--mid); margin-bottom: .6rem; font-size: .95rem; }
+    .contact-info a { color: var(--saffron-d); font-weight: 600; }
+    .contact-info a:hover { text-decoration: underline; }
+    .contact-detail { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+    .contact-detail svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: .15rem; color: var(--saffron); }
+    .contact-form { background: var(--white); border-radius: 14px; padding: 2rem; border: 1.5px solid var(--border); }
+    .contact-form h3 { font-size: 1.1rem; font-weight: 800; color: var(--dark); margin-bottom: 1.2rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: .85rem; font-weight: 700; color: var(--mid); margin-bottom: .35rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: .65rem .9rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: .95rem; color: var(--dark); background: var(--light); outline: none; transition: border-color .2s; font-family: inherit; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--saffron); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit { width: 100%; background: var(--saffron); color: var(--white); border: none; padding: .8rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background .2s; }
+    .form-submit:hover { background: var(--saffron-d); }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: #f0d9b0; padding: 3rem 6vw 1.5rem; }
+    .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(240,217,176,.2); }
+    .footer-brand .nav-logo { font-size: 1.5rem; color: var(--gold); }
+    .footer-brand p { font-size: .88rem; color: #c8a87a; margin-top: .5rem; max-width: 260px; }
+    .footer-links h4 { color: var(--gold); font-size: .9rem; font-weight: 700; margin-bottom: .8rem; letter-spacing: .5px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: .4rem; }
+    .footer-links a { font-size: .88rem; color: #c8a87a; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { text-align: center; padding-top: 1.5rem; font-size: .82rem; color: #8a6a40; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-img-badge { right: 8px; bottom: 8px; }
+      .hero-stats { gap: 1.5rem; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=64&h=64&fit=crop&auto=format" alt="Saffron House logo" />
+    Saffron<span>House</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#why">Why Us</a>
+    <a href="#markets">Markets</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <span class="hero-badge">
+      <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=32&h=32&fit=crop&auto=format" alt="globe" />
+      Global Export Partner
+    </span>
+    <h1>Premium Quality<br /><em>Export Products</em><br />from India</h1>
+    <p>Spices, textiles, bath towels &amp; garments — sourced with care, packed with precision, delivered with trust to international buyers worldwide.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-outline">Enquire Now</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Product Categories</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Export Quality</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Global</div>
+        <div class="stat-label">Markets Served</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=900&h=600&fit=crop&auto=format" alt="Premium Indian spices and export products" />
+    <div class="hero-image-badge">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=80&fit=crop&auto=format" alt="quality badge" />
+      <div>
+        <strong>Export Ready</strong>
+        <span>International Standards</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop&auto=format" alt="Saffron House — quality sourcing and export" />
+      <div class="about-img-badge">
+        <strong>Since 2020</strong>
+        <span>Trusted Exporter</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="section-tag">Who We Are</span>
+      <h2 class="section-title">Quality, Trust &amp; Long-Term Partnerships</h2>
+      <div class="divider"></div>
+      <p>At Saffron House, we focus on supplying quality products that combine reliability, value, and professional export service. We specialize in premium quality spices, bath towels, garments, and textile products for international markets.</p>
+      <p>Our spices are carefully sourced with focus on quality, freshness, natural processing, and export standards suitable for global buyers. Our towel and garment products are selected with attention to fabric quality, comfort, durability, and finishing standards.</p>
+      <p>We understand the importance of consistency, trust, and buyer satisfaction in international trade. Our goal is not only to supply products, but to build dependable and long-term partnerships with importers, wholesalers, retailers, distributors, and sourcing partners worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <span class="section-tag">What We Offer</span>
+  <h2 class="section-title">Our Product Range</h2>
+  <div class="divider"></div>
+  <p class="section-sub">Every product is selected to meet international export standards — consistent quality, reliable packaging, and competitive pricing.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=400&fit=crop&auto=format" alt="Premium Indian spices" />
+      <div class="product-card-body">
+        <h3>Premium Spices</h3>
+        <p>Carefully sourced spices with focus on freshness, natural processing, and export-grade quality for global buyers.</p>
+        <span class="product-tag">Export Grade</span>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&auto=format" alt="Premium bath towels" />
+      <div class="product-card-body">
+        <h3>Bath Towels</h3>
+        <p>Soft, durable, and absorbent towels crafted from quality fabric with excellent finishing standards.</p>
+        <span class="product-tag">Premium Fabric</span>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&h=400&fit=crop&auto=format" alt="Quality garments" />
+      <div class="product-card-body">
+        <h3>Garments</h3>
+        <p>Quality garments selected for fabric comfort, durability, and finishing — ready for international retail and wholesale.</p>
+        <span class="product-tag">Wholesale Ready</span>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=400&fit=crop&auto=format" alt="Textile products" />
+      <div class="product-card-body">
+        <h3>Textile Products</h3>
+        <p>A range of textile goods meeting export quality benchmarks — suitable for distributors and sourcing partners.</p>
+        <span class="product-tag">Bulk Supply</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <span class="section-tag">Our Strengths</span>
+  <h2 class="section-title">Why Buyers Choose Saffron House</h2>
+  <div class="divider"></div>
+  <p class="section-sub">We combine product quality with professional service to make every trade relationship smooth and dependable.</p>
+  <div class="why-grid">
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <h4>Premium Quality Products</h4>
+      <p>Every item is selected to meet international quality benchmarks before it reaches our buyers.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h4>Carefully Sourced Spices</h4>
+      <p>Natural processing, freshness, and export-grade standards — from farm to shipment.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      <h4>Soft &amp; Durable Fabrics</h4>
+      <p>Towels and garments chosen for comfort, durability, and superior finishing quality.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      <h4>Reliable Packaging</h4>
+      <p>Secure, export-standard packaging that protects products throughout transit.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <h4>Competitive Pricing</h4>
+      <p>Fair, transparent pricing that delivers value without compromising on quality.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <h4>Long-Term Partnerships</h4>
+      <p>We focus on building lasting relationships with importers, wholesalers, and distributors.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <h4>Professional Communication</h4>
+      <p>Clear, timely, and professional business communication at every stage of the order.</p>
+    </div>
+
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--saffron)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <h4>Timely Support</h4>
+      <p>Responsive support from enquiry to delivery — we keep you informed throughout.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section id="markets">
+  <span class="section-tag">Global Reach</span>
+  <h2 class="section-title">International Markets We Serve</h2>
+  <div class="divider" style="background: linear-gradient(90deg, #f5c842, #e8871a);"></div>
+  <p class="section-sub">Our products are export-ready and suited for buyers across multiple regions and trade channels.</p>
+  <div class="markets-grid">
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/gb.png" alt="United Kingdom flag" />
+      <span>United Kingdom</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/us.png" alt="United States flag" />
+      <span>United States</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/ae.png" alt="UAE flag" />
+      <span>UAE &amp; Gulf</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/eu.png" alt="Europe flag" />
+      <span>Europe</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/au.png" alt="Australia flag" />
+      <span>Australia</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/ca.png" alt="Canada flag" />
+      <span>Canada</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/za.png" alt="Africa flag" />
+      <span>Africa</span>
+    </div>
+    <div class="market-card">
+      <img src="https://flagcdn.com/w80/sg.png" alt="Southeast Asia flag" />
+      <span>Southeast Asia</span>
+    </div>
+  </div>
+  <p class="markets-note">We work with importers, wholesalers, retailers, distributors, and sourcing partners. If your region isn't listed, reach out — we're open to new markets.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-tag">Get In Touch</span>
+  <h2 class="section-title">Start a Conversation</h2>
+  <div class="divider"></div>
+  <p class="section-sub">Whether you're looking for a product quote, a sample request, or a long-term supply partnership — we'd love to hear from you.</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Saffron House</h3>
+      <p>India-based export supplier of spices, textiles, bath towels, and garments for international buyers.</p>
+
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div><strong>Website</strong><br /><a href="https://www.saffronhouse.co.in" target="_blank">www.saffronhouse.co.in</a></div>
+      </div>
+
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div><strong>Email</strong><br /><a href="mailto:info@saffronhouse.co.in">info@saffronhouse.co.in</a></div>
+      </div>
+
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><strong>Origin</strong><br />India</div>
+      </div>
+
+      <div class="contact-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><strong>Response Time</strong><br />Within 24–48 business hours</div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send an Enquiry</h3>
+      <div class="form-group">
+        <label for="name">Your Name / Company</label>
+        <input type="text" id="name" placeholder="e.g. John Smith / ABC Imports Ltd" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@company.com" />
+      </div>
+      <div class="form-group">
+        <label for="product">Product Interest</label>
+        <select id="product">
+          <option value="">Select a category…</option>
+          <option>Spices</option>
+          <option>Bath Towels</option>
+          <option>Garments</option>
+          <option>Textile Products</option>
+          <option>Multiple / General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us about your requirements, quantities, or any questions…"></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you for your enquiry! We will get back to you within 24–48 hours.')">Send Enquiry &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">Saffron<span style="color:#e8871a">House</span></div>
+      <p>Premium Indian export supplier of spices, textiles, bath towels &amp; garments for global markets.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#markets">Markets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#products">Premium Spices</a></li>
+        <li><a href="#products">Bath Towels</a></li>
+        <li><a href="#products">Garments</a></li>
+        <li><a href="#products">Textile Products</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@saffronhouse.co.in">info@saffronhouse.co.in</a></li>
+        <li><a href="https://www.saffronhouse.co.in">www.saffronhouse.co.in</a></li>
+        <li><a href="#contact">Send Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Saffron House. All rights reserved. &nbsp;|&nbsp; Made in India
+  </div>
+</footer>
+
+</body>
+</html>
